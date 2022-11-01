@@ -1,0 +1,40 @@
+---
+title: "Reproducible papers in the life sciences using R"
+author: |
+  | Ariel Mundo Ortiz
+  | @amundortiz (Twitter)
+  | @aimundo (Mastodon)
+institute: |
+  | Université de Montréal
+format: 
+  beamer:
+    theme: Antibes
+    colortheme: default
+    navigation: horizontal
+    incremental: true
+    header-includes: |
+      \logo{\includegraphics[width=3cm]{udem.png}}
+---
+
+## Introduction
+
+- `RMarkdown` is a powerful tool to create reproducible papers
+- However, R is rarely used in the life sciences as a default method to create papers
+- **Why?**
+
+## Reasons
+
+- "R is just for Stats"
+- "There is a learning curve"
+- "I can't create figures for publication"
+
+\centering
+    \includegraphics[width=4cm]{figure.jpg}
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
