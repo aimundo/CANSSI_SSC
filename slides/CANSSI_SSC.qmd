@@ -2,10 +2,15 @@
 title: "Reproducible papers in the life sciences using R"
 author: |
   | Ariel Mundo Ortiz
-  | @amundortiz (Twitter)
-  | @aimundo (Mastodon)
 institute: |
   | Université de Montréal
+  |
+  | @amundortiz (Twitter)
+  | @aimundo (Mastodon)
+date: |
+  | CANSSI Statistical Software Conference
+  | November 10, 2022
+keep-tex: true
 format: 
   beamer:
     theme: Antibes
@@ -13,28 +18,37 @@ format:
     navigation: horizontal
     incremental: true
     header-includes: |
-      \logo{\includegraphics[width=3cm]{udem.png}}
+      \logo{\includegraphics[width=2cm]{udem.png}}
+      \usepackage{copyrightbox}
 ---
 
 ## Introduction
 
 - `RMarkdown` is a powerful tool to create reproducible papers
 - However, R is rarely used in the life sciences as a default method to create papers
-- **Why?**
+- \color{red}{Why?}
 
 ## Reasons
 
 - "R is just for Stats"
 - "There is a learning curve"
-- "I can't create figures for publication"
+- **"I can't create figures for publication"**
 
+
+## The Problem
+
+- Papers in the life sciences usually require figures where the following are combined:
+    - Images from cells/tissues
+    - Figures that summarize data
+    - Figures that present statistical analyses (with "p-values")
+    
+## The Problem
+
+\begin{figure}
 \centering
-    \includegraphics[width=4cm]{figure.jpg}
+\caption{A typical figure}
+\copyrightbox[b]{\includegraphics[width=2.5cm]{figure.jpg}}
+                {\tiny{Guerra et al.} \textit{Neoplasia} \textbf{2021}}
+    \end{figure}
 
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
+- \color{red}{Can figures like this be created using `RMarkdown`?}
