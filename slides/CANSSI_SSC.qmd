@@ -52,3 +52,39 @@ format:
     \end{figure}
 
 - \color{red}{Can figures like this be created using `RMarkdown`?}
+
+## The Solution
+
+- Yes, we can create figures like this using R!
+
+- We will need to use a combination of packages to achieve this
+
+\begin{figure}
+\centering
+\caption{The packages}
+\includegraphics[width=6cm]{R_packages.png}
+\end{figure}
+
+## The Solution
+
+- {bookdown} allows to create a reproducible paper:
+    - Each section of the paper: (Materials and Methods, Results, etc.) is in a separate `Rmd` file
+    - More details can be found in \url{https://bookdown.org/} 
+- {here} allows to easily call scripts within the document (we will look at this later)
+
+## The Solution
+
+- Let's think about a typical scenario, where you:
+    - Have written your paper sections (Methods, Results, etc) each section is in a `Rmd` file
+    - Have some images
+    - Have some data that needs to be analyzed
+    - Want to create a composite figure of images/data analysis
+    
+    - **For the sake of time, I will focus on the image composition/data analysis part**
+    
+## A Handy Script
+
+- We can read the images (in PNG format), get the data, do the analysis and create the figure in a single script!
+    - Reading the images is achieved by `grid` and `png`
+    - `ggplot2` creates the plot of our analysis
+    - `patchwork` allows us to assemble everything

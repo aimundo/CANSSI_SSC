@@ -177,7 +177,7 @@ November 10, 2022}
 
 \begin{document}
 \frame{\titlepage}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}, interior hidden, sharp corners, enhanced, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, interior hidden, frame hidden]}{\end{tcolorbox}}\fi
 
 \begin{frame}[fragile]{Introduction}
 \protect\hypertarget{introduction}{}
@@ -237,6 +237,87 @@ November 10, 2022}
 \begin{itemize}[<+->]
 \item
   \color{red}{Can figures like this be created using `RMarkdown`?}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Solution}
+\protect\hypertarget{the-solution}{}
+\begin{itemize}[<+->]
+\item
+  Yes, we can create figures like this using R!
+\item
+  We will need to use a combination of packages to achieve this
+\end{itemize}
+
+\begin{figure}
+\centering
+\caption{The packages}
+\includegraphics[width=6cm]{R_packages.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{The Solution}
+\protect\hypertarget{the-solution-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \{bookdown\} allows to create a reproducible paper:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Each section of the paper: (Materials and Methods, Results, etc.) is
+    in a separate \texttt{Rmd} file
+  \item
+    More details can be found in \url{https://bookdown.org/}
+  \end{itemize}
+\item
+  \{here\} allows to easily call scripts within the document (we will
+  look at this later)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The Solution}
+\protect\hypertarget{the-solution-2}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Let's think about a typical scenario, where you:
+
+  \begin{itemize}[<+->]
+  \item
+    Have written your paper sections (Methods, Results, etc) each
+    section is in a \texttt{Rmd} file
+  \item
+    Have some images
+  \item
+    Have some data that needs to be analyzed
+  \item
+    Want to create a composite figure of images/data analysis
+  \item
+    \textbf{For the sake of time, I will focus on the image
+    composition/data analysis part}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script}
+\protect\hypertarget{a-handy-script}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We can read the images (in PNG format), get the data, do the analysis
+  and create the figure in a single script!
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Reading the images is achieved by \texttt{grid} and \texttt{png}
+  \item
+    \texttt{ggplot2} creates the plot of our analysis
+  \item
+    \texttt{patchwork} allows us to assemble everything
+  \end{itemize}
 \end{itemize}
 \end{frame}
 
