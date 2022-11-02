@@ -20,6 +20,7 @@ format:
     header-includes: |
       \logo{\includegraphics[width=2cm]{udem.png}}
       \usepackage{copyrightbox}
+      \usepackage{dirtree}
 ---
 
 ## Introduction
@@ -67,10 +68,10 @@ format:
 
 ## The Solution
 
-- {bookdown} allows to create a reproducible paper:
+- \textcolor{green}{{bookdown}} allows to create a reproducible paper:
     - Each section of the paper: (Materials and Methods, Results, etc.) is in a separate `Rmd` file
     - More details can be found in \url{https://bookdown.org/} 
-- {here} allows to easily call scripts within the document (we will look at this later)
+- \textcolor{green}{{here}} allows to easily call scripts within the document (we will look at this later)
 
 ## The Solution
 
@@ -82,9 +83,144 @@ format:
     
     - **For the sake of time, I will focus on the image composition/data analysis part**
     
-## A Handy Script
+## Project Organization
+
+- How to organize the files:
+
+. . .
+
+\dirtree{%
+.1 Project.
+.2 Data.
+.3 csv files.
+.2 Code.
+.3 R Script(s).
+.2 Figures.
+.3 PNGs (or other image files).
+.2 Manuscript.
+.3 Rmd files (Sections).
+}
+
+## A Handy Script: Images
 
 - We can read the images (in PNG format), get the data, do the analysis and create the figure in a single script!
     - Reading the images is achieved by `grid` and `png`
-    - `ggplot2` creates the plot of our analysis
-    - `patchwork` allows us to assemble everything
+    - \textcolor{green}{{ggplot2}} creates the plot of our analysis
+    - \textcolor{green}{{patchwork}} allows us to assemble everything
+    
+## A Handy Script: Images
+
+- How do we read a PNG image?
+
+\footnotesize
+
+``` {r}
+#| code-overflow: wrap
+#| eval: false
+#| echo: true
+
+cells<-rasterGrob(readPNG(here("figures",
+                               "cells.png"),
+                          native=TRUE))
+
+```
+\normalsize
+
+- We use \textcolor{green}{{here}} to call the PNG file located in the "figures" directory.
+
+## A Handy Script: Data Analysis
+
+\footnotesize
+
+``` {r}
+#| code-overflow: wrap
+#| eval: false
+#| echo: true
+
+# for regression
+
+formula<-y~x
+
+# create a plot of the data and the regression
+a1<-ggplot(data=data,
+           aes(x=weight,y=body_fat,fill=Group,color=Group)
+           )+
+    geom_point(show.legend=FALSE,shape=21,colour='black',size=5,
+               alpha=0.7)+
+    geom_smooth(method="lm",formula=formula, se=T)+
+    stat_poly_eq(use_label(c("R2","p.value")), 
+                 formula = formula, size = 3)
+
+```
+\normalsize
+
+- Try \textcolor{green}{{ggpmisc}}
+
+## A Handy Script: Layout
+
+- Provide a layout for the figure \url{https://patchwork.data-imaginist.com/articles/guides/layout.html}
+
+. . .
+
+\footnotesize
+
+``` {r}
+#| code-overflow: wrap
+#| eval: false
+#| echo: true
+
+
+                        layout<-"
+                        AAAABBBB
+                        AAAABBBB
+                        AAAABBBB
+                        AAAABBBB
+                        CCCCDDDD
+                        CCCCDDDD
+                        CCCCEEEE
+                        CCCCEEEE
+                        "
+```
+
+## A Handy Script: Assemble!
+
+- Use `wrap_elements` and \textcolor{green}{{patchwork}}
+
+\footnotesize
+
+``` {r}
+#| code-overflow: wrap
+#| eval: false
+#| echo: true
+
+                image_a<-wrap_elements(
+                    panel=cells
+                )+
+                    wrap_elements(
+                        panel=molecule
+                    )+
+                    wrap_elements(
+                        panel=jellyfish
+                    )+
+                    ylab("jellyfish")+
+                    a1+
+                    a2+
+                    plot_layout(design=layout)
+```
+\normalsize
+
+## Conclusion
+
+- We can use R to create reproducible papers and complex figures
+- There **is** a learning curve, but once you learn you won't go back to W**d!
+
+## Acknowlegdments
+
+- Nasri Lab @Université de Montréal
+- Centre de recherches mathématiques (CRM)
+
+\vspace{0.01em}
+\centering
+        \includegraphics[width=3cm]{espum.jpg}
+         &
+         \includegraphics[width=3cm]{crm.png}

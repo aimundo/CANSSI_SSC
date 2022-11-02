@@ -79,6 +79,46 @@
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
 
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -104,6 +144,7 @@
 
 \logo{\includegraphics[width=2cm]{udem.png}}
 \usepackage{copyrightbox}
+\usepackage{dirtree}
 \makeatletter
 \makeatother
 \makeatletter
@@ -177,7 +218,7 @@ November 10, 2022}
 
 \begin{document}
 \frame{\titlepage}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, interior hidden, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, borderline west={3pt}{0pt}{shadecolor}, enhanced, sharp corners, interior hidden, boxrule=0pt, breakable]}{\end{tcolorbox}}\fi
 
 \begin{frame}[fragile]{Introduction}
 \protect\hypertarget{introduction}{}
@@ -261,7 +302,7 @@ November 10, 2022}
 \begin{itemize}[<+->]
 \tightlist
 \item
-  \{bookdown\} allows to create a reproducible paper:
+  \textcolor{green}{{bookdown}} allows to create a reproducible paper:
 
   \begin{itemize}[<+->]
   \tightlist
@@ -272,8 +313,8 @@ November 10, 2022}
     More details can be found in \url{https://bookdown.org/}
   \end{itemize}
 \item
-  \{here\} allows to easily call scripts within the document (we will
-  look at this later)
+  \textcolor{green}{{here}} allows to easily call scripts within the
+  document (we will look at this later)
 \end{itemize}
 \end{frame}
 
@@ -301,8 +342,31 @@ November 10, 2022}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{A Handy Script}
-\protect\hypertarget{a-handy-script}{}
+\begin{frame}{Project Organization}
+\protect\hypertarget{project-organization}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  How to organize the files:
+\end{itemize}
+
+\pause
+
+\dirtree{%
+.1 Project.
+.2 Data.
+.3 csv files.
+.2 Code.
+.3 R Script(s).
+.2 Figures.
+.3 PNGs (or other image files).
+.2 Manuscript.
+.3 Rmd files (Sections).
+}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script: Images}
+\protect\hypertarget{a-handy-script-images}{}
 \begin{itemize}[<+->]
 \tightlist
 \item
@@ -314,11 +378,159 @@ November 10, 2022}
   \item
     Reading the images is achieved by \texttt{grid} and \texttt{png}
   \item
-    \texttt{ggplot2} creates the plot of our analysis
+    \textcolor{green}{{ggplot2}} creates the plot of our analysis
   \item
-    \texttt{patchwork} allows us to assemble everything
+    \textcolor{green}{{patchwork}} allows us to assemble everything
   \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script: Images}
+\protect\hypertarget{a-handy-script-images-1}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  How do we read a PNG image?
+\end{itemize}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cells}\OtherTok{\textless{}{-}}\FunctionTok{rasterGrob}\NormalTok{(}\FunctionTok{readPNG}\NormalTok{(}\FunctionTok{here}\NormalTok{(}\StringTok{"figures"}\NormalTok{,}
+                               \StringTok{"cells.png"}\NormalTok{),}
+                          \AttributeTok{native=}\ConstantTok{TRUE}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We use \textcolor{green}{{here}} to call the PNG file located in the
+  ``figures'' directory.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script: Data Analysis}
+\protect\hypertarget{a-handy-script-data-analysis}{}
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# for regression}
+
+\NormalTok{formula}\OtherTok{\textless{}{-}}\NormalTok{y}\SpecialCharTok{\textasciitilde{}}\NormalTok{x}
+
+\CommentTok{\# create a plot of the data and the regression}
+\NormalTok{a1}\OtherTok{\textless{}{-}}\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{data,}
+           \FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{weight,}\AttributeTok{y=}\NormalTok{body\_fat,}\AttributeTok{fill=}\NormalTok{Group,}\AttributeTok{color=}\NormalTok{Group)}
+\NormalTok{           )}\SpecialCharTok{+}
+    \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{show.legend=}\ConstantTok{FALSE}\NormalTok{,}\AttributeTok{shape=}\DecValTok{21}\NormalTok{,}\AttributeTok{colour=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{,}\AttributeTok{size=}\DecValTok{5}\NormalTok{,}
+               \AttributeTok{alpha=}\FloatTok{0.7}\NormalTok{)}\SpecialCharTok{+}
+    \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method=}\StringTok{"lm"}\NormalTok{,}\AttributeTok{formula=}\NormalTok{formula, }\AttributeTok{se=}\NormalTok{T)}\SpecialCharTok{+}
+    \FunctionTok{stat\_poly\_eq}\NormalTok{(}\FunctionTok{use\_label}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"R2"}\NormalTok{,}\StringTok{"p.value"}\NormalTok{)), }
+                 \AttributeTok{formula =}\NormalTok{ formula, }\AttributeTok{size =} \DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Try \textcolor{green}{{ggpmisc}}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script: Layout}
+\protect\hypertarget{a-handy-script-layout}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Provide a layout for the figure
+  \url{https://patchwork.data-imaginist.com/articles/guides/layout.html}
+\end{itemize}
+
+\pause
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{                        layout}\OtherTok{\textless{}{-}}\StringTok{"}
+\StringTok{                        AAAABBBB}
+\StringTok{                        AAAABBBB}
+\StringTok{                        AAAABBBB}
+\StringTok{                        AAAABBBB}
+\StringTok{                        CCCCDDDD}
+\StringTok{                        CCCCDDDD}
+\StringTok{                        CCCCEEEE}
+\StringTok{                        CCCCEEEE}
+\StringTok{                        "}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}[fragile]{A Handy Script: Assemble!}
+\protect\hypertarget{a-handy-script-assemble}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Use \texttt{wrap\_elements} and \textcolor{green}{{patchwork}}
+\end{itemize}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{                image\_a}\OtherTok{\textless{}{-}}\FunctionTok{wrap\_elements}\NormalTok{(}
+                    \AttributeTok{panel=}\NormalTok{cells}
+\NormalTok{                )}\SpecialCharTok{+}
+                    \FunctionTok{wrap\_elements}\NormalTok{(}
+                        \AttributeTok{panel=}\NormalTok{molecule}
+\NormalTok{                    )}\SpecialCharTok{+}
+                    \FunctionTok{wrap\_elements}\NormalTok{(}
+                        \AttributeTok{panel=}\NormalTok{jellyfish}
+\NormalTok{                    )}\SpecialCharTok{+}
+                    \FunctionTok{ylab}\NormalTok{(}\StringTok{"jellyfish"}\NormalTok{)}\SpecialCharTok{+}
+\NormalTok{                    a1}\SpecialCharTok{+}
+\NormalTok{                    a2}\SpecialCharTok{+}
+                    \FunctionTok{plot\_layout}\NormalTok{(}\AttributeTok{design=}\NormalTok{layout)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+\end{frame}
+
+\begin{frame}{Conclusion}
+\protect\hypertarget{conclusion}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We can use R to create reproducible papers and complex figures
+\item
+  There \textbf{is} a learning curve, but once you learn you won't go
+  back to W**d!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Acknowlegdments}
+\protect\hypertarget{acknowlegdments}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Nasri Lab @Université de Montréal
+\item
+  Centre de recherches mathématiques (CRM)
+\end{itemize}
+
+\vspace{0.01em}
+\centering
+
+\includegraphics[width=3cm]{espum.jpg} \&
+\includegraphics[width=3cm]{crm.png}
 \end{frame}
 
 
