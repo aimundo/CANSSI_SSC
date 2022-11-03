@@ -218,6 +218,7 @@ a1<-ggplot(data=data,
 
 - Nasri Lab @Université de Montréal
 - Centre de recherches mathématiques (CRM)
+- CANSSI
 
 \vspace{0.01em}
 \centering
