@@ -18,7 +18,7 @@ format:
     navigation: horizontal
     incremental: true
     header-includes: |
-      \logo{\includegraphics[width=2cm]{udem.png}}
+      \logo{\includegraphics[width=2cm]{figures/udem.png}}
       \usepackage{copyrightbox}
       \usepackage{dirtree}
 ---
@@ -48,7 +48,7 @@ format:
 \begin{figure}
 \centering
 \caption{A typical figure}
-\copyrightbox[b]{\includegraphics[width=2.5cm]{figure.jpg}}
+\copyrightbox[b]{\includegraphics[width=2.5cm]{figures/figure.jpg}}
                 {\tiny{Guerra et al.} \textit{Neoplasia} \textbf{2021}}
     \end{figure}
 
@@ -63,7 +63,7 @@ format:
 \begin{figure}
 \centering
 \caption{The packages}
-\includegraphics[width=6cm]{R_packages.png}
+\includegraphics[width=6cm]{figures/R_packages.png}
 \end{figure}
 
 ## The Solution
@@ -89,17 +89,17 @@ format:
 
 . . .
 
-\dirtree{%
-.1 Project.
-.2 Data.
-.3 csv files.
-.2 Code.
-.3 R Script(s).
-.2 Figures.
-.3 PNGs (or other image files).
-.2 Manuscript.
-.3 Rmd files (Sections).
-}
+<!-- \dirtree{% -->
+<!-- .1 Project. -->
+<!-- .2 Data. -->
+<!-- .3 csv files. -->
+<!-- .2 Code. -->
+<!-- .3 R Script(s). -->
+<!-- .2 Figures. -->
+<!-- .3 PNGs (or other image files). -->
+<!-- .2 Manuscript. -->
+<!-- .3 Rmd files (Sections). -->
+<!-- } -->
 
 ## A Handy Script: Images
 
@@ -222,6 +222,6 @@ a1<-ggplot(data=data,
 
 \vspace{0.01em}
 \centering
-        \includegraphics[width=3cm]{espum.jpg}
+        \includegraphics[width=3cm]{figures/espum.jpg}
          &
-         \includegraphics[width=3cm]{crm.png}
+         \includegraphics[width=3cm]{figures/crm.png}

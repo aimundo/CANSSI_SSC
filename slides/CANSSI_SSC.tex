@@ -142,7 +142,7 @@
 \def\fps@figure{htbp}
 \makeatother
 
-\logo{\includegraphics[width=2cm]{udem.png}}
+\logo{\includegraphics[width=2cm]{figures/udem.png}}
 \usepackage{copyrightbox}
 \usepackage{dirtree}
 \makeatletter
@@ -218,7 +218,7 @@ November 10, 2022}
 
 \begin{document}
 \frame{\titlepage}
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[borderline west={3pt}{0pt}{shadecolor}, enhanced, interior hidden, sharp corners, frame hidden, breakable, boxrule=0pt]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
 
 \begin{frame}[fragile]{Introduction}
 \protect\hypertarget{introduction}{}
@@ -271,7 +271,7 @@ November 10, 2022}
 \begin{figure}
 \centering
 \caption{A typical figure}
-\copyrightbox[b]{\includegraphics[width=2.5cm]{figure.jpg}}
+\copyrightbox[b]{\includegraphics[width=2.5cm]{figures/figure.jpg}}
                 {\tiny{Guerra et al.} \textit{Neoplasia} \textbf{2021}}
     \end{figure}
 
@@ -293,7 +293,7 @@ November 10, 2022}
 \begin{figure}
 \centering
 \caption{The packages}
-\includegraphics[width=6cm]{R_packages.png}
+\includegraphics[width=6cm]{figures/R_packages.png}
 \end{figure}
 \end{frame}
 
@@ -351,18 +351,6 @@ November 10, 2022}
 \end{itemize}
 
 \pause
-
-\dirtree{%
-.1 Project.
-.2 Data.
-.3 csv files.
-.2 Code.
-.3 R Script(s).
-.2 Figures.
-.3 PNGs (or other image files).
-.2 Manuscript.
-.3 Rmd files (Sections).
-}
 \end{frame}
 
 \begin{frame}[fragile]{A Handy Script: Images}
@@ -531,8 +519,8 @@ November 10, 2022}
 \vspace{0.01em}
 \centering
 
-\includegraphics[width=3cm]{espum.jpg} \&
-\includegraphics[width=3cm]{crm.png}
+\includegraphics[width=3cm]{figures/espum.jpg} \&
+\includegraphics[width=3cm]{figures/crm.png}
 \end{frame}
 
 
