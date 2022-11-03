@@ -5,8 +5,9 @@ author: |
 institute: |
   | Université de Montréal
   |
-  | @amundortiz (Twitter)
-  | @aimundo (Mastodon)
+  | \includegraphics[width=0.6cm]{figures/Twitter.png} @amundortiz 
+  |
+  | \includegraphics[width=0.6cm]{figures/Mastodon.png} @aimundo 
 date: |
   | CANSSI Statistical Software Conference
   | November 10, 2022
