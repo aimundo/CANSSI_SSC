@@ -88,18 +88,21 @@ format:
 - How to organize the files:
 
 . . .
+{% raw %}
 
-<!-- \dirtree{% -->
-<!-- .1 Project. -->
-<!-- .2 Data. -->
-<!-- .3 csv files. -->
-<!-- .2 Code. -->
-<!-- .3 R Script(s). -->
-<!-- .2 Figures. -->
-<!-- .3 PNGs (or other image files). -->
-<!-- .2 Manuscript. -->
-<!-- .3 Rmd files (Sections). -->
-<!-- } -->
+\dirtree{%
+.1 Project.
+.2 Data.
+.3 csv files.
+.2 Code.
+.3 R Script(s).
+.2 Figures.
+.3 PNGs (or other image files).
+.2 Manuscript.
+.3 Rmd files (Sections).
+}
+
+{% endraw %}
 
 ## A Handy Script: Images
 
