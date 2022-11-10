@@ -22,6 +22,7 @@ format:
       \logo{\includegraphics[width=2cm]{figures/udem.png}}
       \usepackage{copyrightbox}
       \usepackage{dirtree}
+      \usepackage{forest}
 ---
 
 ## Introduction
@@ -89,26 +90,58 @@ format:
 - How to organize the files:
 
 . . .
-{% raw %}
 
-\dirtree{%
-.1 Project.
-.2 Data.
-.3 csv files.
-.2 Code.
-.3 R Script(s).
-.2 Figures.
-.3 PNGs (or other image files).
-.2 Manuscript.
-.3 Rmd files (Sections).
-}
+\footnotesize
+\centering
+\begin{forest}
+        for tree={
+            font=\ttfamily,
+            text width=8cm,% added <<<<<<<<<<<<<<
+            grow'=0,
+            child anchor=west,
+            parent anchor=south,
+            anchor=west,
+            calign=first,
+            inner xsep=7pt,
+            edge path={
+                \noexpand\path [draw, \forestoption{edge}]
+                (!u.south west) +(7.5pt,0) |- (.child anchor) 
+                \forestoption{edge label};
+            },
+            before typesetting nodes={
+                if n=1
+                {insert before={[,phantom]}}
+                {}
+            },
+            fit=band,
+            before computing xy={l=15pt},
+        }  
+        [Project
+        [Data
+        [csv files
+        ]
+        ]
+        [Code
+        [R Script(s)
+        ]
+        ]
+        [Figures
+        [PNG (or other image files)
+        ]
+        ]
+        [Manuscript
+        [Rmd files (sections)
+        ]
+        ]
+        ]
+    \end{forest}
 
-{% endraw %}
+\normalsize
 
 ## A Handy Script: Images
 
 - We can read the images (in PNG format), get the data, do the analysis and create the figure in a single script!
-    - Reading the images is achieved by `grid` and `png`
+    - Reading the images is achieved by \textcolor{green}{{grid}} and \textcolor{green}{{png}}
     - \textcolor{green}{{ggplot2}} creates the plot of our analysis
     - \textcolor{green}{{patchwork}} allows us to assemble everything
     
@@ -131,6 +164,7 @@ cells<-rasterGrob(readPNG(here("figures",
 \normalsize
 
 - We use \textcolor{green}{{here}} to call the PNG file located in the "figures" directory.
+- `rasterGrob` makes the image a "graphical object" (grob) that can be invoked later
 
 ## A Handy Script: Data Analysis
 
@@ -162,7 +196,7 @@ a1<-ggplot(data=data,
 
 ## A Handy Script: Layout
 
-- Provide a layout for the figure \url{https://patchwork.data-imaginist.com/articles/guides/layout.html}
+- Provide a layout for the figure (\url{https://patchwork.data-imaginist.com/articles/guides/layout.html})
 
 . . .
 
@@ -220,12 +254,21 @@ a1<-ggplot(data=data,
 
 ## Acknowlegdments
 
-- Nasri Lab @Université de Montréal
-- Centre de recherches mathématiques (CRM)
-- CANSSI
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\footnotesize
+- Nasri Lab (Université de Montréal) \\
+- Centre de recherches mathématiques (CRM)\\
+- Mathematics for Public Health (MfPH)
 
+\end{column}
+\begin{column}{0.4\textwidth}
 \vspace{0.01em}
 \centering
-        \includegraphics[width=3cm]{figures/espum.jpg}
-         &
-         \includegraphics[width=3cm]{figures/crm.png}
+        \includegraphics[width=2cm]{figures/logo.png}\\
+        \includegraphics[width=2cm]{figures/espum.jpg}\\
+        \includegraphics[width=2cm]{figures/crm.png}\\
+         \includegraphics[width=2cm]{figures/mfph.png}\\
+         
+\end{column}
+\end{columns}
