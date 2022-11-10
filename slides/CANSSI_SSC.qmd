@@ -247,6 +247,8 @@ a1<-ggplot(data=data,
 ```
 \normalsize
 
+(**go to script**)
+
 ## Conclusion
 
 - We can use R to create reproducible papers and complex figures
