@@ -254,14 +254,18 @@ a1<-ggplot(data=data,
 - We can use R to create reproducible papers and complex figures
 - There **is** a learning curve, but once you learn you won't go back to W**d!
 
-## Acknowlegdments
+## Acknowledgements
 
 \begin{columns}
 \begin{column}{0.6\textwidth}
 \footnotesize
 - Nasri Lab (Université de Montréal) \\
 - Centre de recherches mathématiques (CRM)\\
-- Mathematics for Public Health (MfPH)
+- Mathematics for Public Health (MfPH)\\
+
+\vspace{5mm} %5mm vertical space
+
+\textbf{Slides and repo: \url{https://tinyurl.com/2p9ez5vm}}
 
 \end{column}
 \begin{column}{0.4\textwidth}
